@@ -1,0 +1,225 @@
+{
+  "source": "https://github.com/Lin-arm/GKD_subscription",
+  "sourceVersion": 602,
+  "sourceSHA256": "f7ac5e17250b19334add7f8e15201154bd95af24574a6435532af475b2c33e00",
+  "version": 2026100502,
+  "addedGroups": 21,
+  "defaultEnabledNew": 8,
+  "optionalNew": 13,
+  "apps": 53,
+  "totalGroups": 62,
+  "method": "逐组阅读JSON选择器和操作进行静态审查，未实机测试",
+  "excluded": "未允许的上游规则全部不导入；支付/银行/安装/权限授权/登录批准/删除/系统设置/隐藏安全警告/重发消息均排除",
+  "added": [
+    {
+      "app": "com.openai.chatgpt",
+      "appName": "ChatGPT",
+      "sourceKey": 1,
+      "key": 100001,
+      "name": "界面管理-充值Plus提示",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.deepseek.chat",
+      "appName": "DeepSeek",
+      "sourceKey": 2,
+      "key": 100002,
+      "name": "阅读辅助-思考完成后自动折叠思考过程",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.facebook.katana",
+      "appName": "Facebook",
+      "sourceKey": 1,
+      "key": 100001,
+      "name": "阅读辅助-自动点击[查看翻译]",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.github.android",
+      "appName": "GitHub",
+      "sourceKey": 2,
+      "key": 100002,
+      "name": "阅读辅助-PR自动展开详情",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.instagram.android",
+      "appName": "Instagram",
+      "sourceKey": 2,
+      "key": 100002,
+      "name": "阅读辅助-自动点击[查看翻译]",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "Instagram删除首页坐标规则；统一限次和冷却"
+    },
+    {
+      "app": "com.moonshot.kimichat",
+      "appName": "Kimi",
+      "sourceKey": 1,
+      "key": 100001,
+      "name": "界面管理-评价提示",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.adobe.psmobile",
+      "appName": "Photoshop Express",
+      "sourceKey": 1,
+      "key": 100001,
+      "name": "界面管理-评价提示",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.tencent.mobileqq",
+      "appName": "QQ",
+      "sourceKey": 11,
+      "key": 100011,
+      "name": "阅读辅助-自动点击查看原图",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.reddit.frontpage",
+      "appName": "Reddit",
+      "sourceKey": 5,
+      "key": 100005,
+      "name": "阅读辅助-自动点击翻译",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.xingin.xhs",
+      "appName": "小红书",
+      "sourceKey": 5,
+      "key": 100005,
+      "name": "界面管理-评分弹窗",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.xingin.xhs",
+      "appName": "小红书",
+      "sourceKey": 6,
+      "key": 100006,
+      "name": "阅读辅助-评论区-自动展开回复",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.xingin.xhs",
+      "appName": "小红书",
+      "sourceKey": 17,
+      "key": 100017,
+      "name": "阅读辅助-评论区-展开更多回复",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.xingin.xhs",
+      "appName": "小红书",
+      "sourceKey": 19,
+      "key": 100019,
+      "name": "界面管理-自动关闭截屏弹窗",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.zhihu.android",
+      "appName": "知乎",
+      "sourceKey": 17,
+      "key": 100017,
+      "name": "阅读辅助-热榜页自动点击[展开更多]",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.zhihu.android",
+      "appName": "知乎",
+      "sourceKey": 18,
+      "key": 100018,
+      "name": "阅读辅助-自动展开回答",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.zhihu.android",
+      "appName": "知乎",
+      "sourceKey": 19,
+      "key": 100019,
+      "name": "界面管理-评论区氛围评价卡片",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.tencent.qqmusic",
+      "appName": "QQ音乐",
+      "sourceKey": 8,
+      "key": 100008,
+      "name": "界面管理-好评弹窗",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.twitter.android",
+      "appName": "X(推特)",
+      "sourceKey": 4,
+      "key": 100004,
+      "name": "界面管理-评价提示",
+      "defaultEnabled": true,
+      "risk": "低：仅关闭普通营销/评价提示；界面变化可能误触",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.twitter.android",
+      "appName": "X(推特)",
+      "sourceKey": 6,
+      "key": 100006,
+      "name": "阅读辅助-自动点击翻译",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.twitter.android",
+      "appName": "X(推特)",
+      "sourceKey": 7,
+      "key": 100007,
+      "name": "阅读辅助-自动[显示更多帖子]",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    },
+    {
+      "app": "com.twitter.android",
+      "appName": "X(推特)",
+      "sourceKey": 11,
+      "key": 100011,
+      "name": "阅读辅助-网络错误自动重试",
+      "defaultEnabled": false,
+      "risk": "低至中：改变阅读界面，可能触发翻译请求、流量消耗或展开过多内容；默认关闭",
+      "modifications": "统一限次和冷却"
+    }
+  ]
+}
