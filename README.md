@@ -1,33 +1,29 @@
-# Logan 广告与应用管理保守订阅
+# Logan 广告与应用管理平衡订阅
 
-导入地址： https://raw.githubusercontent.com/LoganMrSUN/gkd-safe-subscription/main/gkd.json5
+订阅地址：https://raw.githubusercontent.com/LoganMrSUN/gkd-safe-subscription/main/gkd.json5
 
-## 当前版本 2026100502
+## 当前版本 2026100503
 
-原有 41 个开屏广告组保留；参考 Lin-arm/GKD_subscription v602 新增 21 个经过逐组静态审查的应用管理组。
+覆盖 695 个应用、1194 个规则组。原有62组完整保留，新增1132组：23组明确跳过文字/控件的开屏广告默认开启，1109组默认关闭。应用数代表订阅所含候选覆盖，不等于当前运行数量。
 
-- 界面管理：8 组默认开启。ChatGPT Plus 营销提示关闭、Kimi/Photoshop Express/QQ音乐/X/小红书的评价提示关闭、知乎评论氛围评价关闭、小红书截屏分享提示关闭。
-- 阅读辅助：13 组默认关闭。DeepSeek完成思考后折叠、GitHub PR展开、Facebook/Instagram/Reddit/X翻译、X更多帖子与读取失败重试、知乎展开、小红书展开回复、QQ查看原图。
+新增可选规则：全屏广告483组、局部广告335组、分段广告119组、评价提示64组、通知提示53组、可选开屏广告53组。新增默认开屏广告23组。
 
-在 GKD 中按需单独打开“阅读辅助”规则。翻译可能产生网络请求，QQ原图增加流量，自动展开会改变阅读界面。每个新增组及规则设置至少 3 秒冷却；界面管理每次进入应用最多一次，阅读辅助每次进入应用最多三次。限次会降低自动化覆盖率。
+GKD刷新订阅后确认版本。按应用逐组开启可选规则，避免整类打开；坐标、返回、滑动、规则链以及匹配较宽的规则默认关闭。旧的开关覆盖设置可能优先于订阅默认值，更新后检查实际开关。
 
-## 风险评估
+## 风险与验证
 
-默认新增规则：低风险，但布局变化可能造成误触或误关提示。阅读辅助：低至中风险，主要是界面变化和流量；默认关闭。以上是静态判断，不代表已在手机验证。
+新增候选根据分类、敏感操作线索、敏感应用名称、动作类型、跨组引用及规则链完整性自动静态筛选；不是对1194组逐一人工审查，也没有在用户手机上验证。关键词排除不能证明安全。默认新增点击主要为跳开屏广告，存在界面变化误触风险；可选规则风险因具体选择器而异，坐标/滑动/返回可能误关页面。
 
-不导入上游其他功能。排除付款、银行/证券、安装与风险绕过、权限授权、文件夹授权、登录批准、删除、系统设置、重发消息，以及自动隐藏安全/账号警告。所有全局规则保持为空。Instagram翻译删去首页坐标规则，只保留点击文字按钮的规则。保留既有开屏广告规则。
+排除含付款、安装、授权、登录确认、删除等敏感操作线索和敏感应用；未验证跨组引用不导入；长按及未知动作不导入。全局规则保持为空。新增默认开屏组限启动前10秒，每规则最多2次操作。
 
-## 更新
+## 更新与来源
 
-订阅 id 保持 159916922；version 递增。没有上游自动同步、updateUrl或checkUpdateUrl，GKD从导入时填写的本仓库地址更新。停用旧的上游订阅，以免其规则继续运行。
+id 保持159916922；version递增；不配置上游updateUrl/checkUpdateUrl。GKD从你导入的本仓库地址更新。没有自动同步上游工作流。
 
-## 审查与复现
+本次参考 Lin-arm/GKD_subscription v602，作者👻；源文件哈希、每组决策见balance-audit.json。首版来源oklazeno/gkd-subscription及作者说明见UPSTREAM-LICENSE.md；版权属于原作者。
 
-- audit.json：首版筛选记录。
-- enhancement-audit.json：本次新增规则清单、默认状态、风险及来源哈希。
-- build.py：旧版开屏广告筛选脚本；单独运行不能生成增强版。
-- enhance.py：增强版允许清单。下载 Lin-arm 原始 JSON5 后运行 `python enhance.py gkd.json5 lin-arm.json5 rebuilt.json5`，需要 Python json5。重建时版本号递增。
+## 复现
 
-## 来源
+balance.py：`python balance.py BASE.json LIN.json5 OUTPUT.json5`，依赖Python json5。BASE应为扩展前2026100502的订阅，可从Git历史获取。不要把已生成的平衡版作为BASE重复加入相同组。
 
-原版来自 oklazeno/gkd-subscription；其来源及许可说明见 UPSTREAM-LICENSE.md。新增规则来自 https://github.com/Lin-arm/GKD_subscription ，作者 👻。保留原始选择器来源截图链接。版权归各原作者，本仓库不对上游许可解释作额外保证。
+build.py和enhance.py是旧版脚本，单独运行会产生旧范围；audit.json与enhancement-audit.json为历史筛选记录。
