@@ -1,0 +1,1088 @@
+{
+  "id": 159916922,
+  "name": "Logan 开屏广告保守订阅",
+  "version": 2026100501,
+  "author": "LoganMrSUN；规则来源见 README",
+  "categories": [
+    {
+      "key": 0,
+      "name": "开屏广告",
+      "enable": true
+    }
+  ],
+  "globalGroups": [],
+  "apps": [
+    {
+      "id": "com.chowbus.branded.molly",
+      "name": "Molly Tea",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "forcedTime": 10000,
+          "actionMaximum": 1,
+          "actionCd": 800,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "activityIds": "com.chowbus.branded.branded_app.MainActivity",
+              "matches": "[desc^=\"Skip\"][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/29147518",
+              "exampleUrls": "https://e.gkd.li/a43170a0-8196-49d8-bb4d-3554aeae1900"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.qc.mycomic",
+      "name": "MyComic",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "@[clickable=true] > [text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/15443225"
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.tencent.mobileqq",
+      "name": "QQ",
+      "groups": [
+        {
+          "key": 6,
+          "name": "开屏广告-QQ小程序开屏广告",
+          "desc": "点击右下角跳过",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "activityIds": [
+                ".mini.appbrand.ui.AppBrandUI",
+                ".activity.miniaio.MiniChatActivity"
+              ],
+              "matches": [
+                "[text=\"广告\"][visibleToUser=true]",
+                "[text=\"跳过\"][visibleToUser=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/12877215",
+                "https://i.gkd.li/i/12919195",
+                "https://i.gkd.li/i/15130235"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "matchTime": 10000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.bbk.theme",
+      "name": "(vivo)主题",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "forcedTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "matches": "[text*=\"跳过\"][text.length<10][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/30565834"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.hanweb.android.sdzwfw.activity",
+      "name": "爱山东",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "@[clickable=true] > [text*=\"关闭\" || text*=\"跳过\"][text.length<10]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13407227",
+                "https://i.gkd.li/i/30527745"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.jiongji.andriod.card",
+      "name": "百词斩",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "excludeActivityIds": "com.baicizhan.client.business.webview.ui.BczWebActivity",
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/8612bbae-7a50-4730-8071-1c47e35c27ca",
+              "snapshotUrls": "https://i.gkd.li/i/21705324",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/21705338"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "tv.danmaku.bili",
+      "name": "哔哩哔哩",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchRoot": true,
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "actionCd": 500,
+              "matches": "[vid=\"count_down\" || vid=\"skip\"][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/16187624",
+                "https://i.gkd.li/i/16484445"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "matchTime": 10000
+        }
+      ]
+    },
+    {
+      "id": "com.ss.android.ugc.aweme",
+      "name": "抖音",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "excludeActivityIds": ".search.activity.SearchResultActivity",
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/202942ce-259c-4b9d-b3b3-06afbac8145f",
+              "snapshotUrls": "https://i.gkd.li/i/13216121",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/17811608"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.cs_credit_bank",
+      "name": "发现精彩",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "matches": "@TextView[text*=\"跳过\"] <3 ViewGroup < [vid=\"main_layout\"]",
+              "snapshotUrls": "https://i.gkd.li/i/30388152"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.dragon.read",
+      "name": "番茄免费小说",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "actionDelay": 1000,
+              "matches": "@[desc=\"跳过广告\"][clickable=true] > [text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/e36d701f-bcee-48d5-99da-1c5301101d9e",
+              "snapshotUrls": "https://i.gkd.li/i/23282793"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.zy.flt_yishang",
+      "name": "飞猫管家",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[desc*=\"跳过\"][desc.length<10][width<500 && height<200][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/882f36c1-d172-436f-a43e-194d75940886",
+              "snapshotUrls": "https://i.gkd.li/i/24097095"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.autonavi.minimap",
+      "name": "高德地图",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/983cc392-1b01-4172-bc1d-2df001baeb3d",
+              "snapshotUrls": "https://i.gkd.li/i/16490985"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.tmri.app.main",
+      "name": "交管12123",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/6bbf28ed-9e78-4006-9225-49c07954ee45",
+              "snapshotUrls": "https://i.gkd.li/i/25207240"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.kuaishou.nebula",
+      "name": "快手极速版",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[vid=\"splash_skip_text\"]",
+              "exampleUrls": "https://e.gkd.li/5d393b9b-c327-4429-9759-8c18a097453a",
+              "snapshotUrls": "https://i.gkd.li/i/17631261"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.sankuai.meituan",
+      "name": "美团",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "key": 0,
+              "matches": "TextView[text*=\"跳过\"][text.length<8][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/28997249",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/17827264"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.xiaohu.olevodmobile",
+      "name": "欧乐影院",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "@[vid=\"init_time_text\"] + [text=\"跳过\"]",
+              "snapshotUrls": "https://i.gkd.li/i/12826256"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.xunmeng.pinduoduo",
+      "name": "拼多多",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "excludeActivityIds": ".activity.NewPageActivity",
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/25691473",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/25691480"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.hihonor.appmarket",
+      "name": "荣耀应用市场",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[vid=\"tv_operation_skip\" || vid=\"btn_skip\"]",
+              "exampleUrls": "https://e.gkd.li/549d5fc1-20a2-42aa-b249-4cc8896807e6",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/16406381",
+                "https://i.gkd.li/i/29175881"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.jv.samsungeshop",
+      "name": "三星商城",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[desc=\"跳过\"][desc.length<10][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/65cbe48e-843e-4dba-a53b-5f6598a2b409",
+              "snapshotUrls": "https://i.gkd.li/i/23288756"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.sohu.inputmethod.sogou",
+      "name": "搜狗输入法",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "fastQuery": true,
+              "matches": "@[clickable=true] > [text=\"跳过\"][text.length<10][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/d310d2a0-4795-421d-82da-f3855fb7288b",
+              "snapshotUrls": "https://i.gkd.li/i/20138053"
+            },
+            {
+              "key": 1,
+              "fastQuery": true,
+              "matches": "@[clickable=true][text^=\"跳过\"] - [text=\"广告\"][text.length<10][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/aa7e78f0-0cfe-490d-8d41-f3e41b906610",
+              "snapshotUrls": "https://i.gkd.li/i/25897923"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.kylindev.totalk",
+      "name": "滔滔对讲",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "matches": "@[clickable=true] > [text*=\"跳过\"][text.length<10][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/30350919"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.taobao.taobao",
+      "name": "淘宝",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "@[vid*=\"close\"] > [text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/17576743",
+                "https://i.gkd.li/i/17578451"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.MobileTicket",
+      "name": "铁路12306",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[vid=\"tv_main_splash_skip\" || vid=\"tv_skip\"][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/9a9b71b2-0c52-4623-b53b-6dd07d0cbe7c",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/17580273",
+                "https://i.gkd.li/i/17656103"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.seasun.tech.woh.jx3companion",
+      "name": "推栏",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "@[clickable=true] > [text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/3314ff0b-9218-4712-9ae9-b820029e356a",
+              "snapshotUrls": "https://i.gkd.li/i/18730361"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.pwrd.steam.esports",
+      "name": "完美世界电竞",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[vid=\"rl_skip\"][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/b7adf229-631c-4c27-a07b-eb6e0e1854af",
+              "snapshotUrls": "https://i.gkd.li/i/21808124"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.netease.cloudmusic",
+      "name": "网易云音乐",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "excludeActivityIds": [
+                ".music.biz.setting.activity.SettingActivity",
+                ".music.biz.search.activity.SearchActivity",
+                ".music.biz.rn.activity.BgMainProcessRNActivity"
+              ],
+              "matches": "[text*=\"跳过\" || text*=\"Skip\"][text.length<10][width<500 && height<200][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/30857148",
+                "https://i.gkd.li/i/30857149"
+              ],
+              "excludeSnapshotUrls": [
+                "https://i.gkd.li/i/15092814",
+                "https://i.gkd.li/i/16318423",
+                "https://i.gkd.li/i/30857162"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.tencent.mm",
+      "name": "微信",
+      "groups": [
+        {
+          "key": 7,
+          "name": "开屏广告-微信小程序",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "forcedTime": 10000,
+          "priorityTime": 10000,
+          "activityIds": [
+            ".plugin.appbrand.ui.AppBrandUI",
+            ".plugin.appbrand.launching.AppBrandLaunchProxyUI"
+          ],
+          "rules": [
+            {
+              "key": 0,
+              "actionDelay": 800,
+              "matches": [
+                "[text=\"广告\" || text=\"廣告\"][visibleToUser=true]",
+                "[text=\"跳过\" || text=\"跳過\"][visibleToUser=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/12785183",
+                "https://i.gkd.li/i/13306883",
+                "https://i.gkd.li/i/13407275",
+                "https://i.gkd.li/i/15108441"
+              ]
+            },
+            {
+              "key": 1,
+              "matchRoot": true,
+              "actionCd": 500,
+              "matches": "@TextView[text*=\"跳过\"][text.length<10][height<150] <<(25-n) FrameLayout[childCount=2] <(1,2) * < [id=\"android:id/content\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/26677309",
+                "https://i.gkd.li/i/26747393"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "actionMaximum": 1,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.hihonor.phoneservice",
+      "name": "我的荣耀",
+      "groups": [
+        {
+          "key": 2,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "rules": [
+            {
+              "activityIds": "com.hihonor.phoneservice.OpenScreenAdActivity",
+              "matches": "TextView[id=\"com.hihonor.phoneservice:id/start_skip_count_down\"]",
+              "snapshotUrls": "https://i.gkd.li/import/14896804"
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.ss.android.article.video",
+      "name": "西瓜视频",
+      "groups": [
+        {
+          "key": 5,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/6f8312b0-e110-4098-9db9-48358069601a",
+              "snapshotUrls": "https://i.gkd.li/i/17530523"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.ximalaya.ting.android",
+      "name": "喜马拉雅",
+      "groups": [
+        {
+          "key": 16,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/7ef0b1fb-aaa0-475d-b6b4-e927776adb27",
+              "snapshotUrls": "https://i.gkd.li/i/17068586"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.sys.washmashine",
+      "name": "小依",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "ignoreGlobalGroupMatch": true,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "@[desc=\"skip_button\"][clickable=true] - [text=\"跳过\"]",
+              "exampleUrls": "https://e.gkd.li/b0d7d8e3-fc68-4be8-aba0-c8100d4143fb",
+              "snapshotUrls": "https://i.gkd.li/i/22274999"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.chaoxing.mobile",
+      "name": "学习通",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "matchRoot": true,
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": ".activity.SplashActivity",
+              "matches": "@[clickable=true] > [text^=\"跳过\"][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/26644070",
+              "exampleUrls": "https://e.gkd.li/42ea0ef8-e1c6-43e8-8f48-971439c19d58"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.cctv.yangshipin.app.androidp",
+      "name": "央视频",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/19859692",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/20949002"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.yingyonghui.market",
+      "name": "应用汇",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "key": 0,
+              "matches": "[vid=\"splashAdvert_skipLayout\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/32155585"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.ct.client",
+      "name": "中国电信",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/15084759",
+                "https://i.gkd.li/i/15079224"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.ruanmei.ithome",
+      "name": "IT之家",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "excludeMatches": "[vid=\"iv_search_back\"][visibleToUser=true]",
+              "matches": "[text*=\"跳过\"][text.length<10][width<500 && height<300][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/49015bf7-6513-40b2-a436-d3c386ef1891",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/16401878",
+                "https://i.gkd.li/i/16401899"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "gov.pianzong.androidnga",
+      "name": "NGA玩家社区",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchRoot": true,
+          "fastQuery": true,
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "matches": "[vid=\"tv_tiaoguo\" || vid=\"iv_tg_ad\" || vid=\"tv_skip\"][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/d7520bc7-588b-4654-b6aa-d2736ac200bf",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/13798686",
+                "https://i.gkd.li/i/17082872",
+                "https://i.gkd.li/i/17082897",
+                "https://i.gkd.li/i/17082899",
+                "https://i.gkd.li/i/23432463"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.heytap.market",
+      "name": "OPPO软件商店",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "@[clickable=true] > [text=\"跳过\"]",
+              "snapshotUrls": "https://i.gkd.li/i/14668997"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.vivo.browser",
+      "name": "vivo浏览器",
+      "groups": [
+        {
+          "key": 3,
+          "name": "开屏广告",
+          "matchTime": 10000,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "priorityTime": 10000,
+          "rules": [
+            {
+              "fastQuery": true,
+              "matches": "[text*=\"跳过\"][text.length<10][visibleToUser=true][clickable=true]",
+              "exampleUrls": "https://e.gkd.li/ae56bdf6-1de3-4a19-bcd3-233212aeffc0",
+              "snapshotUrls": "https://i.gkd.li/i/16739023"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.sfacg",
+      "name": "菠萝包轻小说",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "matchTime": 10000,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "matches": "TextView[text*=\"跳过\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/19888120",
+                "https://i.gkd.li/i/19888054",
+                "https://i.gkd.li/i/20114219"
+              ]
+            }
+          ],
+          "order": -10,
+          "enable": true,
+          "actionMaximum": 1
+        }
+      ]
+    },
+    {
+      "id": "com.ponyemu.main",
+      "name": "小马模拟器",
+      "groups": [
+        {
+          "key": 0,
+          "name": "开屏广告",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "matchTime": 10000,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "activityIds": "com.ponyemu.main.activitys.AdLaunchActivity",
+              "matches": "TextView[text*=\"跳过\"]",
+              "snapshotUrls": "https://i.gkd.li/import/14892481"
+            }
+          ],
+          "order": -10,
+          "enable": true
+        }
+      ]
+    }
+  ]
+}
