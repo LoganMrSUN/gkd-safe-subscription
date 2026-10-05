@@ -1,13 +1,23 @@
 {
   "id": 159916922,
-  "name": "Logan 开屏广告保守订阅",
-  "version": 2026100501,
+  "name": "Logan 广告与应用管理保守订阅",
+  "version": 2026100502,
   "author": "LoganMrSUN；规则来源见 README",
   "categories": [
     {
       "key": 0,
       "name": "开屏广告",
       "enable": true
+    },
+    {
+      "key": 100,
+      "name": "界面管理",
+      "enable": true
+    },
+    {
+      "key": 101,
+      "name": "阅读辅助",
+      "enable": false
     }
   ],
   "globalGroups": [],
@@ -92,6 +102,32 @@
           "order": -10,
           "enable": true,
           "matchTime": 10000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100011,
+          "name": "阅读辅助-自动点击查看原图",
+          "desc": "查看图片时自动点击原图",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "com.tencent.richframework.gallery.QQGalleryActivity",
+              "anyMatches": [
+                "[text^=\"查看原图\"][clickable=true][visibleToUser=true]",
+                "@[clickable=true] > [text^=\"查看原图\"][visibleToUser=true]"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/14757735",
+                "https://i.gkd.li/i/24489364"
+              ],
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
           "resetMatch": "app"
         }
       ]
@@ -1081,6 +1117,585 @@
           ],
           "order": -10,
           "enable": true
+        }
+      ]
+    },
+    {
+      "id": "com.openai.chatgpt",
+      "name": "ChatGPT",
+      "groups": [
+        {
+          "key": 100001,
+          "name": "界面管理-充值Plus提示",
+          "desc": "在输入框上方提示, 点击x掉",
+          "fastQuery": true,
+          "rules": [
+            {
+              "key": 0,
+              "activityIds": ".MainActivity",
+              "matches": "@[clickable=true][getChild(0).desc=\"关闭\"] <<(-n+10)  * -> [getChild(0).text*=\"Plus\" || text*=\"Plus\"] <<(-n+12) View[childCount>=2][left!=0] <<(-n+12) [left=0][top!=0] <n [childCount>=3] <<(-n+18) [id=\"android:id/content\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24996012",
+                "https://i.gkd.li/i/28416563",
+                "https://i.gkd.li/i/28416912",
+                "https://i.gkd.li/i/28416926",
+                "https://i.gkd.li/i/28435734",
+                "https://i.gkd.li/i/28840922"
+              ],
+              "exampleUrls": "https://e.gkd.li/db0ecc3d-9401-4c2d-bdc0-32262ce443a4",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionMaximum": 1,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.deepseek.chat",
+      "name": "DeepSeek",
+      "groups": [
+        {
+          "key": 100002,
+          "name": "阅读辅助-思考完成后自动折叠思考过程",
+          "desc": "二选一",
+          "rules": [
+            {
+              "activityIds": ".MainActivity",
+              "actionCd": 3000,
+              "matches": "@[clickable=true] > [text^=\"已思考\" || text^=\"已深度思考\"] + View[desc=\"折叠\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/23982613",
+                "https://i.gkd.li/i/25364857"
+              ],
+              "excludeSnapshotUrls": [
+                "https://i.gkd.li/i/23982641",
+                "https://i.gkd.li/i/23982615"
+              ],
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.facebook.katana",
+      "name": "Facebook",
+      "groups": [
+        {
+          "key": 100001,
+          "name": "阅读辅助-自动点击[查看翻译]",
+          "activityIds": [
+            ".immersiveactivity.ImmersiveActivity",
+            ".activity.FbMainTabActivity"
+          ],
+          "rules": [
+            {
+              "key": 0,
+              "fastQuery": true,
+              "matches": "@ViewGroup[clickable=true] > [visibleToUser=true][text=\"查看翻译\"] <<n [id=\"android:id/list\"]",
+              "exampleUrls": "https://e.gkd.li/8801f1f5-ddcb-45b2-9f19-c82e9d1271f1",
+              "snapshotUrls": "https://i.gkd.li/i/21955231",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            },
+            {
+              "key": 1,
+              "matchRoot": true,
+              "actionCd": 3000,
+              "matches": "[text=\"查看翻译\"][clickable=true][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/a111f9dc-8604-45f5-ba0c-22606890c338",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/24712867",
+                "https://i.gkd.li/i/24717051"
+              ],
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.github.android",
+      "name": "GitHub",
+      "groups": [
+        {
+          "key": 100002,
+          "name": "阅读辅助-PR自动展开详情",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": ".main.MainActivity",
+              "matches": "[text=\"更改\"] < * < ComposeView - [childCount=2] >2 [text=\"阅读更多\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/26644420",
+              "exampleUrls": "https://e.gkd.li/1a5c6e13-1a77-400e-9e78-e164563824db",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.instagram.android",
+      "name": "Instagram",
+      "groups": [
+        {
+          "key": 100002,
+          "name": "阅读辅助-自动点击[查看翻译]",
+          "fastQuery": true,
+          "activityIds": "com.instagram.mainactivity.InstagramMainActivity",
+          "rules": [
+            {
+              "key": 0,
+              "name": "评论区",
+              "matches": "[text=\"查看翻译\"][clickable=true]",
+              "snapshotUrls": "https://i.gkd.li/i/14093211",
+              "exampleUrls": "https://m.gkd.li/57941037/e92702d8-8349-4718-aa4d-664bf3d2f6e5",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            },
+            {
+              "key": 1,
+              "name": "评论区2",
+              "matches": "@[clickable=true][text=\"查看翻译\"] <<n [vid=\"sticky_header_list\"][getChild(0).id=null]",
+              "snapshotUrls": "https://i.gkd.li/i/31329753",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.moonshot.kimichat",
+      "name": "Kimi",
+      "groups": [
+        {
+          "key": 100001,
+          "name": "界面管理-评价提示",
+          "rules": [
+            {
+              "activityIds": ".MainActivity",
+              "matches": "[text=\"残忍拒绝\"] < @View[clickable=true] -n [text^=\"感谢喜欢 Kimi\"][text*=\"打个分吧\"]",
+              "snapshotUrls": "https://i.gkd.li/i/31449987",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionMaximum": 1,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.adobe.psmobile",
+      "name": "Photoshop Express",
+      "groups": [
+        {
+          "key": 100001,
+          "name": "界面管理-评价提示",
+          "desc": "点击[不,谢谢]",
+          "rules": [
+            {
+              "fastQuery": true,
+              "action": "clickCenter",
+              "activityIds": ".MainActivity",
+              "matches": "@[desc=\"不，谢谢\"] < [childCount=2] <4 View[childCount=4] < View < WebView < * < * < [id=\"android:id/custom\"]",
+              "snapshotUrls": "https://i.gkd.li/i/26115696",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionMaximum": 1,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.reddit.frontpage",
+      "name": "Reddit",
+      "groups": [
+        {
+          "key": 100005,
+          "name": "阅读辅助-自动点击翻译",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "com.reddit.launch.main.MainActivity",
+              "matches": "@[id=\"translation_banner_action\"][clickable=true] > [visibleToUser=true][text=\"翻译\"] <<n [vid=\"fragment_pager\"]",
+              "exampleUrls": "https://e.gkd.li/8fcef25c-ff16-4456-8174-cac27aa7fc66",
+              "snapshotUrls": "https://i.gkd.li/i/22451437",
+              "excludeSnapshotUrls": "https://i.gkd.li/i/22451467",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.xingin.xhs",
+      "name": "小红书",
+      "groups": [
+        {
+          "key": 100005,
+          "name": "界面管理-评分弹窗",
+          "desc": "返回关闭弹窗",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "action": "back",
+              "activityIds": "com.xingin.lurker.appscore.ui.AppScoreDialogActivity",
+              "matches": "[text=\"您对小红书的评分如何?\"][visibleToUser=true]",
+              "exampleUrls": "https://m.gkd.li/57941037/9727815d-b881-4904-bbdc-19ade426977e",
+              "snapshotUrls": "https://i.gkd.li/i/15281458",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionCd": 3000
+        },
+        {
+          "key": 100006,
+          "name": "阅读辅助-评论区-自动展开回复",
+          "desc": "自动展开x条回复,更多展开在下面",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": [
+                "com.xingin.matrix.notedetail.NoteDetailActivity",
+                "com.xingin.matrix.detail.activity.DetailFeedActivity"
+              ],
+              "matches": "@[clickable=true] >(1,2) [text^=\"展开\"][text$=\"条回复\"][text.length<12]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/25048251",
+                "https://i.gkd.li/i/25823242",
+                "https://i.gkd.li/i/27204200",
+                "https://i.gkd.li/i/31308354"
+              ],
+              "exampleUrls": [
+                "https://e.gkd.li/a211ebb1-2177-4264-9a60-280a5f8e2777"
+              ],
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100017,
+          "name": "阅读辅助-评论区-展开更多回复",
+          "desc": "自动展开更多回复",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": [
+                "com.xingin.matrix.notedetail.NoteDetailActivity",
+                "com.xingin.matrix.detail.activity.DetailFeedActivity"
+              ],
+              "matches": "@[clickable=true] >(1,2) [text=\"展开更多回复\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/25048251",
+                "https://i.gkd.li/i/27204288",
+                "https://i.gkd.li/i/31308389"
+              ],
+              "exampleUrls": [
+                "https://e.gkd.li/a211ebb1-2177-4264-9a60-280a5f8e2777"
+              ],
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100019,
+          "name": "界面管理-自动关闭截屏弹窗",
+          "desc": "点击x掉",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": [
+                "com.xingin.matrix.notedetail.NoteDetailActivity",
+                "com.xingin.matrix.detail.activity.DetailFeedActivity"
+              ],
+              "matches": "@[desc=\"关闭\"] <2 [childCount=2] >3 [text=\"截屏分享至\"]",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/30751358",
+                "https://i.gkd.li/i/30751625"
+              ],
+              "exampleUrls": "https://e.gkd.li/c4bb2699-8e78-412c-92bd-47d35bb05616",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionMaximum": 1,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.zhihu.android",
+      "name": "知乎",
+      "groups": [
+        {
+          "key": 100017,
+          "name": "阅读辅助-热榜页自动点击[展开更多]",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": ".app.ui.activity.MainActivity",
+              "matches": "@[clickable=true] >2 [text=\"展开更多\"]",
+              "exampleUrls": "https://m.gkd.li/57941037/09616b29-8a83-4f0f-9f8e-0100fa61738d",
+              "snapshotUrls": "https://i.gkd.li/i/14974198",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100018,
+          "name": "阅读辅助-自动展开回答",
+          "desc": "自动点击展开",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": ".mixshortcontainer.MixShortContainerActivity",
+              "matches": "ImageView[vid=\"iv_expand\"] - TextView[vid=\"tv_expand\"][text=\"展开\"][visibleToUser=true]",
+              "exampleUrls": "https://m.gkd.li/57941037/6f6e5fd0-98a8-4a92-be02-7f34e3c5b8bd",
+              "snapshotUrls": [
+                "https://i.gkd.li/i/12647688",
+                "https://i.gkd.li/i/12707687"
+              ],
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100019,
+          "name": "界面管理-评论区氛围评价卡片",
+          "desc": "点击关闭",
+          "actionMaximum": 1,
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": ".comment.ui.activity.CommentListActivity",
+              "matches": "@ViewGroup[clickable=true] - [text^=\"你对该内容下的评论氛围是否满意\"][visibleToUser=true]",
+              "exampleUrls": "https://e.gkd.li/60674332-41a3-4a31-907e-7af6c23182bf",
+              "snapshotUrls": "https://i.gkd.li/i/20473238",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        }
+      ]
+    },
+    {
+      "id": "com.tencent.qqmusic",
+      "name": "QQ音乐",
+      "groups": [
+        {
+          "key": 100008,
+          "name": "界面管理-好评弹窗",
+          "desc": "点击关闭",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "activityIds": ".activity.AppStarterActivity",
+              "matches": "@[vid=\"close_btn\"] - * > [text*=\"好评\"]",
+              "snapshotUrls": "https://i.gkd.li/i/14881903",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionCd": 3000
+        }
+      ]
+    },
+    {
+      "id": "com.twitter.android",
+      "name": "X(推特)",
+      "groups": [
+        {
+          "key": 100004,
+          "name": "界面管理-评价提示",
+          "fastQuery": true,
+          "actionMaximum": 1,
+          "resetMatch": "app",
+          "rules": [
+            {
+              "activityIds": "com.twitter.app.main.MainActivity",
+              "matches": "[vid=\"app_rating_button_never\"]",
+              "snapshotUrls": "https://i.gkd.li/i/13774150",
+              "actionCd": 3000,
+              "actionMaximum": 1,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": true,
+          "actionCd": 3000
+        },
+        {
+          "key": 100006,
+          "name": "阅读辅助-自动点击翻译",
+          "rules": [
+            {
+              "fastQuery": true,
+              "actionCd": 3000,
+              "activityIds": "com.twitter.tweetdetail.TweetDetailActivity",
+              "matches": "[vid=\"translation_link\" || vid=\"grok_translation_link\"][index=parent.childCount.minus(1)][index!=2]",
+              "exampleUrls": [
+                "https://e.gkd.li/ced46989-9c6a-4626-b027-7953e0fdc2c6",
+                "https://m.gkd.li/57941037/40ece44f-883f-429a-aa0c-17dac15a50e4"
+              ],
+              "snapshotUrls": [
+                "https://i.gkd.li/i/14189817",
+                "https://i.gkd.li/i/14615911",
+                "https://i.gkd.li/i/25461468",
+                "https://i.gkd.li/i/25461607",
+                "https://i.gkd.li/i/26642877"
+              ],
+              "excludeSnapshotUrls": [
+                "https://i.gkd.li/i/25537171",
+                "https://i.gkd.li/i/26642826"
+              ],
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100007,
+          "name": "阅读辅助-自动[显示更多帖子]",
+          "desc": "只点击居中的,不点击靠左的[显示更多帖子]",
+          "rules": [
+            {
+              "key": 0,
+              "fastQuery": true,
+              "activityIds": "com.twitter.app.main.MainActivity",
+              "matches": "@FrameLayout[clickable=true] > [text=\"显示更多帖子\"]",
+              "exampleUrls": "https://m.gkd.li/57941037/7efa8af7-90d3-42b4-bf5d-3d83775f175a",
+              "snapshotUrls": "https://i.gkd.li/i/14189847",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            },
+            {
+              "key": 1,
+              "activityIds": "com.x.android.main.MainActivity",
+              "matches": "@[clickable=true] > TextView[visibleToUser=true][text=\"显示更多帖子\"][right>parent.right.minus(parent.width.div(2))]",
+              "snapshotUrls": "https://i.gkd.li/i/30151597",
+              "excludeSnapshotUrls": [
+                "https://i.gkd.li/i/30175825",
+                "https://i.gkd.li/i/30271020",
+                "https://i.gkd.li/i/30271022"
+              ],
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
+        },
+        {
+          "key": 100011,
+          "name": "阅读辅助-网络错误自动重试",
+          "desc": "无法获取帖子=> 点击[重试]",
+          "rules": [
+            {
+              "fastQuery": true,
+              "activityIds": "com.twitter.tweetdetail.TweetDetailActivity",
+              "matches": "[text^=\"现在无法获取帖子\"] + [text=\"重试\"][clickable=true][visibleToUser=true]",
+              "snapshotUrls": "https://i.gkd.li/i/28419788",
+              "exampleUrls": "https://e.gkd.li/5f532b57-1811-437f-bca2-d60c35aeda29",
+              "actionCd": 3000,
+              "actionMaximum": 3,
+              "resetMatch": "app"
+            }
+          ],
+          "enable": false,
+          "actionMaximum": 3,
+          "actionCd": 3000,
+          "resetMatch": "app"
         }
       ]
     }
